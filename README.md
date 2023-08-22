@@ -1,0 +1,1 @@
+# MedRoom.AI.Test.Architecture
