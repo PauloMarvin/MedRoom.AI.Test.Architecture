@@ -5,6 +5,7 @@ Antes de iniciar sua jornada como integrante da equipe de IA da MedRoom, convida
 
 ## Objetivo
 Neste projeto o seu objetivo é devolver um score de semelhança entre frases. Para isso, você poderá criar um modelo, utilizar um já existente ou apenas aplicar métodos matemáticos na comparação.
+
 Para a entrega deste projeto, você deverá utilizar seus conhecimentos em Docker para criar uma imagem com o arquivo python deste projeto dentro dela.
 
 ## Dados
