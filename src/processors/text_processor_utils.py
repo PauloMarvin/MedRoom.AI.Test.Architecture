@@ -18,35 +18,35 @@ class TextProcessorUtils:
     def remove_sites_corpus(cls, corpus: List[str]) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__remove_sites(text))
+            formatted_corpus.append(cls.remove_sites(text))
         return formatted_corpus
 
     @classmethod
     def remove_punctuation_corpus(cls, corpus: List[str]) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__remove_punctuation(text))
+            formatted_corpus.append(cls.remove_punctuation(text))
         return formatted_corpus
 
     @classmethod
     def lower_text_corpus(cls, corpus: List[str]) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__lower_text(text))
+            formatted_corpus.append(cls.lower_text(text))
         return formatted_corpus
 
     @classmethod
     def remove_stopwords_corpus(cls, corpus: List[str]) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__remove_stopwords(text))
+            formatted_corpus.append(cls.remove_stopwords(text))
         return formatted_corpus
 
     @classmethod
     def lemmatization_corpus(cls, corpus: List[str]) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__lemmatization(text))
+            formatted_corpus.append(cls.lemmatization(text))
         return formatted_corpus
 
     @classmethod
@@ -57,18 +57,18 @@ class TextProcessorUtils:
     ) -> List[str]:
         formatted_corpus = []
         for text in corpus:
-            formatted_corpus.append(cls.__replace_matches(text, patterns_dict))
+            formatted_corpus.append(cls.replace_matches(text, patterns_dict))
         return formatted_corpus
 
     @staticmethod
-    def __remove_sites(raw_text: str) -> str:
+    def remove_sites(raw_text: str) -> str:
         formatted_text = raw_text
         for pattern in [r'(?:https?://)?(?:www\.)?[\w-]+\.[\w.-]+[^\s]*']:
             formatted_text = re.sub(pattern, '', formatted_text)
         return ' '.join(formatted_text.split())
 
     @classmethod
-    def __remove_punctuation(cls, raw_text: str) -> str:
+    def remove_punctuation(cls, raw_text: str) -> str:
         doc = cls.nlp_object(raw_text)
         formatted_text = ' '.join(
             [token.text for token in doc if not token.is_punct],
@@ -76,23 +76,23 @@ class TextProcessorUtils:
         return formatted_text
 
     @staticmethod
-    def __lower_text(raw_text: str) -> str:
+    def lower_text(raw_text: str) -> str:
         return raw_text.lower()
 
     @classmethod
-    def __remove_stopwords(cls, raw_text: str) -> str:
+    def remove_stopwords(cls, raw_text: str) -> str:
         doc = cls.nlp_object(raw_text)
         formatted_text = [token.text for token in doc if not token.is_stop]
         return ' '.join(formatted_text)
 
     @classmethod
-    def __lemmatization(cls, raw_text: str) -> str:
+    def lemmatization(cls, raw_text: str) -> str:
         doc = cls.nlp_object(raw_text)
         formatted_text = [token.lemma_ for token in doc]
         return ' '.join(formatted_text)
 
     @classmethod
-    def __replace_matches(
+    def replace_matches(
         cls,
         raw_text: str,
         patterns_dict: Dict[str, List[List[Dict[str, Any]]]],
