@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "medroom"
+version = "0.1.0"
+description = ""
+authors = ["PauloMarvin <paulo.marving@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+spacy = "3.6.1"
+spacymoji = "3.1.0"
+pt-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.6.0/pt_core_news_sm-3.6.0-py3-none-any.whl" }
+scikit-learn = "1.3.0"
+torch = "2.0.1"
+transformers = "4.32.0"
+pandas = "^2.0.3"
+
+[tool.poetry.dev-dependencies]
+jupyter = "1.0.0"
+pre-commit = "3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
