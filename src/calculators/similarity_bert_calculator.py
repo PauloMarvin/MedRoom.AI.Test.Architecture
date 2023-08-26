@@ -28,7 +28,7 @@ class SimilarityBertCalculator:
     def calculate_similarity(self, sentence1: str, sentence2: str) -> float:
         processed_base_text = self.__process_text(sentence1)
         processed_compare_text = self.__process_text(sentence2)
-        similarity = self.__calculate_similarity_by_cosine(
+        similarity = self.calculate_similarity_by_cosine(
             processed_base_text,
             processed_compare_text,
         )
@@ -40,13 +40,13 @@ class SimilarityBertCalculator:
         else:
             return self.text_pre_processor_pipeline.apply_pipeline(sentence)
 
-    def __calculate_similarity_by_cosine(self, sentence1: str, sentence2: str) -> float:
-        embeds = self.__calculate_embeds([sentence1, sentence2])
-        similarity = self.__calculate_mean_of_embeds(embeds)
+    def calculate_similarity_by_cosine(self, sentence1: str, sentence2: str) -> float:
+        embeds = self.calculate_embeds([sentence1, sentence2])
+        similarity = self.calculate_mean_of_embeds(embeds)
 
         return similarity
 
-    def __calculate_embeds(self, sentences: List[str]) -> List[torch.Tensor]:
+    def calculate_embeds(self, sentences: List[str]) -> List[torch.Tensor]:
         encodings = self.tokenizer(
             sentences,
             padding=True,
@@ -60,7 +60,7 @@ class SimilarityBertCalculator:
 
         return embeds
 
-    def __calculate_mean_of_embeds(self, embeds: List[torch.Tensor]) -> float:
+    def calculate_mean_of_embeds(self, embeds: List[torch.Tensor]) -> float:
         embeds = embeds[0]
         embeds_means = torch.mean(embeds, dim=1)
 
