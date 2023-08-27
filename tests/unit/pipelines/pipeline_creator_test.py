@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sklearn.preprocessing import FunctionTransformer
 
 from src.pipelines.pipeline_creator import PipelineCreator
@@ -61,7 +63,11 @@ class TestPipelineCreator:
     def test_create_pipeline(self):
         pipeline = PipelineCreator(self.pipeline_exemple)
 
-        expected_sentence = ('olá string pontuação ser ser removir haver link emoticon positive_emoji positive_emoji '
-                             'negative_emoji negative_emoji')
+        expected_sentence = (
+            'olá string pontuação ser ser removir haver link emoticon positive_emoji positive_emoji '
+            'negative_emoji negative_emoji'
+        )
 
-        assert pipeline.apply_pipeline(self.sample_sentence) == expected_sentence
+        assert pipeline.apply_pipeline(
+            self.sample_sentence,
+        ) == expected_sentence

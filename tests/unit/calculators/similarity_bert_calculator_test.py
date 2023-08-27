@@ -1,6 +1,7 @@
-import pytest
+from __future__ import annotations
+
 import torch
-from transformers import BertTokenizer, BertModel
+from transformers import BertModel, BertTokenizer
 
 from src.calculators.similarity_bert_calculator import SimilarityBertCalculator
 
@@ -36,16 +37,22 @@ class TestSimilarityBertCalculator:
 
     def test_calculate_embeds(self):
         embeds = self.similarity_bert_calculator.calculate_embeds(
-            [self.sample_sentence_1])
+            [self.sample_sentence_1],
+        )
 
-        expected_embeds = torch.tensor([0.0052, -0.2035, 0.3811, -0.3400, 0.3185, 0.0156, 0.0652, 0.1325,
-                                        -0.0889, 0.4988])
+        expected_embeds = torch.tensor([
+            0.0052, -0.2035, 0.3811, -0.3400, 0.3185, 0.0156, 0.0652, 0.1325,
+            -0.0889, 0.4988,
+        ])
 
         assert torch.allclose(embeds[0][0][0][:10], expected_embeds, atol=1e-4)
 
     def test_calculate_mean_of_embeds(self):
         embeds = self.similarity_bert_calculator.calculate_embeds(
-            [self.sample_sentence_1, self.sample_sentence_2])
-        mean_of_embeds = self.similarity_bert_calculator.calculate_mean_of_embeds(embeds)
+            [self.sample_sentence_1, self.sample_sentence_2],
+        )
+        mean_of_embeds = self.similarity_bert_calculator.calculate_mean_of_embeds(
+            embeds,
+        )
 
         assert mean_of_embeds == 0.09547793865203857
