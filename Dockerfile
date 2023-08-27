@@ -17,6 +17,6 @@ COPY --from=builder /app/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src /app/src
-COPY app.py /app/
+COPY main.py /app/
 
 CMD ["tail", "-f", "/dev/null"]
