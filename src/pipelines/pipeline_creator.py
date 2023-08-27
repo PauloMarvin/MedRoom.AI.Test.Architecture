@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer

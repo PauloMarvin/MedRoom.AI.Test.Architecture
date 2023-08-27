@@ -1,10 +1,12 @@
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 import torch
 import torch.nn.functional as torch_functional
-from transformers import BertModel, PreTrainedTokenizerBase
+from transformers import BertModel
+from transformers import PreTrainedTokenizerBase
 
 from src.pipelines.pipeline_creator import PipelineCreator
 

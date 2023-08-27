@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import torch
-from transformers import BertModel, BertTokenizer
+from transformers import BertModel
+from transformers import BertTokenizer
 
 from src.calculators.similarity_bert_calculator import SimilarityBertCalculator
 

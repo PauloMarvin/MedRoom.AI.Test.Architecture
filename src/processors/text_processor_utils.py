@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
 import spacy
 from spacy.matcher import Matcher

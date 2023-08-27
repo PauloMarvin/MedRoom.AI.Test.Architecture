@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "medroom"
 version = "0.1.0"
-description = ""
+description = "Teste de seleção para a MedRoom para vaga de Arquiteto de Sistemas"
 authors = ["PauloMarvin <paulo.marving@gmail.com>"]
 readme = "README.md"
 
@@ -13,7 +13,6 @@ pt-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/do
 scikit-learn = "1.3.0"
 torch = "2.0.1"
 transformers = "4.32.0"
-pandas = "^2.0.3"
 
 [tool.poetry.dev-dependencies]
 jupyter = "1.0.0"
