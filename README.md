@@ -176,6 +176,15 @@ Esses testes estão localizados na pasta `tests` e podem ser executados com o co
 pytest
 ```
 
+### Pre-Commit
+Este projeto possui um hooks de pre-commit configurados no arquivo `.pre-commit-config.yaml` na pasta raiz do projeto que executa algumas verificações antes de realizar o commit.
+É importante que você instale o hook de pre-commit para que ele seja executado antes de cada commit.
+Para isso, execute o comando abaixo na pasta raiz do projeto:
+
+```
+pre-commit install
+```
+
 ## Desenvolvedores
  - [Paulo Marvin](https://github.com/PauloMarvin)
 
