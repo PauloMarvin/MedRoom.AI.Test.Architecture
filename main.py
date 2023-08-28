@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from sklearn.preprocessing import FunctionTransformer
-from transformers import BertModel, BertTokenizer
+from transformers import BertModel
+from transformers import BertTokenizer
 
 from src.calculators.similarity_bert_calculator import SimilarityBertCalculator
 from src.pipelines.pipeline_creator import PipelineCreator
@@ -69,15 +70,18 @@ def main():
         tokenizer=tokenizer,
     )
 
-    sentence_1 = input('Digite a primeira frase: ')
-    sentence_2 = input('Digite a segunda frase: ')
+    print('Bem vindo ao calculador de similaridade de frases!')
+    print('O calculador utiliza um modelo BERT para calcular a similaridade entre duas frases.')
+    print('O score de similaridade é dado em porcentagem, sendo 0% totalmente diferente e 100% totalmente igual.')
+    sentence_1 = str(input('Digite a primeira frase: '))
+    sentence_2 = str(input('Digite a segunda frase: '))
 
     similarity = bert_similarity_calculator.calculate_similarity(
         sentence_1,
         sentence_2,
     )
-    similarity_percentage = round(similarity, 4)
-    similarity_percentage = 1 - similarity_percentage
+    similarity_percentage = (1 - round(similarity, 2)) * 100
+    print(f'O score de similaridade é de {similarity_percentage}%')
 
     print(f'O score de similaridade é de {similarity_percentage}')
 
