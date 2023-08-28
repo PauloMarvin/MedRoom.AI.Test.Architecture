@@ -96,7 +96,10 @@ para utilizar versões mais novas dos softwares citados acima. Caso tenha proble
 
 ### Utilização
 
-Após criar o repositório, para começar a modificá-lo e/ou contribuir com repositórios já criados, você precisa cloná-lo. Para isso, siga os seguintes passos:
+Para começar a modificá-lo ou executar o container, siga os passos abaixo:
+
+> **Nota**: Devido o poetry ter maiores exigências relacionadas a PEP-517, é recomendado que você instale os compiladores
+> do Rust para evitar problemas na instalação das dependências. Para mais informações, visite o site [compiladores Rust](https://rustup.rs/).
 
 1. Cole o comando abaixo no seu terminal e pressione **Enter**:
 
@@ -136,7 +139,7 @@ Após criar o repositório, para começar a modificá-lo e/ou contribuir com rep
     ```
     Para ativar o ambiente virtual em ambiente Windows:
     ```
-    .venv\Scripts\activate.bat
+    .venv\Scripts\Activate.ps1
     ```
     Para instalar as dependências:
     ```

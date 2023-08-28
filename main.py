@@ -83,8 +83,6 @@ def main():
     similarity_percentage = (1 - round(similarity, 2)) * 100
     print(f'O score de similaridade é de {similarity_percentage}%')
 
-    print(f'O score de similaridade é de {similarity_percentage}')
-
 
 if __name__ == '__main__':
     main()
