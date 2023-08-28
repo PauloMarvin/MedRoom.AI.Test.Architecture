@@ -23,11 +23,11 @@ do projeto juntamente com os seus resultados-chave.
     - Criar funções que possam calcular a similaridade entre os textos baseado em suas representações numéricas.
  - ### Criar um container Docker para a aplicação
     - Criar um arquivo Dockerfile com a definição da imagem.
-    - A imagem a ser criada deverá conter o arquivo .py que será executado através do comando docker exec.
+    - A imagem a ser criada deverá conter o arquivo .py que será executado através do comando `docker exec`.
 
 ## Conteúdo
 
-Nessa seção você encontrará uma breve descrição as etapas desenvolvidas, bem como as técnicas utilizadas.
+Nessa seção há uma breve descrição as etapas desenvolvidas, bem como as técnicas utilizadas.
 
 ### Pre-processamento de texto utilizado
 
@@ -57,7 +57,7 @@ do texto, criando uma base sólida para avaliar a similaridade entre frases de m
 
 ### Vetorização de Texto com BERT
 
-Para a vetorização do texto, utilizou-se uma versão do modelo pré-treinado BERT denominado
+Para a vetorização do texto, foi utilizado uma versão do modelo pré-treinado BERT denominado
 [BERTimbau](https://huggingface.co/neuralmind/bert-base-portuguese-cased). Esse modelo foi treinado com um corpus gerado
 por artigos da Wikipedia em português. O artigo que descreve em detalhes em está nas referências deste documento.
 
@@ -68,16 +68,16 @@ circundam a palavra em foco.
 
 ## Cálculo de Similaridade Utilizando Distância de Cosseno
 
-No processo de avaliar a similaridade entre os embeddings que representam o texto, optou-se por utilizar a distância de
-cosseno como medida. Essa abordagem quantifica a relação angular entre os vetores, fornecendo uma medida de similaridade
-semântica.
+No processo de avaliar a similaridade entre os embeddings que representam o texto, optou-se por utilizar para os cálculos
+a distância de cosseno, calculada através da média dos valores gerados para cada token. Essa abordagem quantifica a
+relação angular entre os vetores, fornecendo uma medida de similaridade semântica.
 
-Nesse procedimento, os embeddings individuais de cada token são combinados pela obtenção da média, o que resulta em um
-único vetor representativo para o texto como um todo. Isso, por sua vez, viabiliza o cálculo da distância de cosseno
+Nesse procedimento, os embeddings individuais de cada token são combinados pela obtenção da média, resultando em um
+único vetor representativo para o texto. Isso, por sua vez, viabiliza o cálculo da distância de cosseno
 entre os vetores resultantes.
 
-Conforme os testes realizados, a estratégia de calcular a média dos embeddings apresentou resultados mais positivos,
-contribuindo para avaliações de similaridade mais precisas entre os textos.
+Conforme os testes realizados, a estratégia de calcular a média dos embeddings apresentou resultados melhores,
+contribuindo para avaliações mais precisas entre os textos.
 
 ## Utilização
 
@@ -91,8 +91,8 @@ Este projeto foi feito e validado com as seguintes versões de software:
  - git `2.41.0`
  - Poetry `1.6.1`(opcional)
 
-Provavelmente você não terá problemas com versões diferentes, especialmente se forem mais novas. Portanto, sinta-se livre para utilizar versões mais novas dos softwares citados acima.
-Caso tenha problemas, recomendo que utilize as versões citadas acima.
+Provavelmente você não terá problemas com versões diferentes, especialmente se forem mais novas. Portanto, sinta-se livre
+para utilizar versões mais novas dos softwares citados acima. Caso tenha problemas, recomendo que utilize as versões citadas acima.
 
 ### Utilização
 
@@ -121,7 +121,7 @@ Após criar o repositório, para começar a modificá-lo e/ou contribuir com rep
     ```
     poetry shell
     ```
-    Para mais informações sobre os comandos do Poetry, visite a [documentação oficial](https://python-poetry.org/do).
+    Para mais informações sobre os comandos do Poetry, visite a [documentação oficial](https://python-poetry.org/).
 
 4. Caso prefira, poderá utilizar o arquivo `requirements.txt` para instalar as dependências do projeto com pip. Para isso, execute o comando:
 
@@ -151,7 +151,7 @@ Após criar o repositório, para começar a modificá-lo e/ou contribuir com rep
     ```
     docker build --no-cache -t medroom .
     ```
-    Executar o container a partir da imagem gerada:
+    Executar o container a partir da imagem gerada anteriormente:
     ```
     docker run --name medroom-app -d medroom
     ```
@@ -182,6 +182,6 @@ pytest
 ## Referências
 
 - [souza2020bertimbau] Fábio Souza, Rodrigo Nogueira, Roberto Lotufo. "BERTimbau: pretrained BERT models for Brazilian Portuguese". In: 9th Brazilian Conference on Intelligent Systems, BRACIS, Rio Grande do Sul, Brazil, October 20-23 (to appear), 2020.
-    Disponível em: https://repositorio.unicamp.br/Busca/Download?codigoArquivo=466423
+Disponível em: https://repositorio.unicamp.br/Busca/Download?codigoArquivo=466423
 - Sentence Similarity using BERT: https://www.kaggle.com/code/eriknovak/pytorch-bert-sentence-similarity
 - BERT Explained: State of the art language model for NLP: https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270
